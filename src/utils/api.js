@@ -19,6 +19,7 @@ export let fetchJSON = async (url, options = {}) => {
         // credentials: 'same-origin',
         headers: {
             'Accept': 'application/json',
+            'Authorization': 'Bearer 607622fd8c2703df9539a812de698013a14fb236',
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(options.body)

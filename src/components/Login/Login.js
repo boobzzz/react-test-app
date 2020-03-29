@@ -1,11 +1,59 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+
+import * as A from '../../store/actions';
+import classes from './Login.module.css';
 
 const Login = (props) => {
+    const { value, setValue } = useState({
+        email: '',
+        password: ''
+    })
+
+    const handleChange = (e) => {
+        setValue({
+            [e.target.id]: e.target.value
+        })
+    }
+
+    const onUserSubmit = (e) => {
+        e.preventDefault()
+        props.signIn(value)
+    }
+
     return (
         <section>
-            <h3>LOGIN PAGE</h3>
+            <div className={classes.FormBox}>
+                <form>
+                    <label>
+                        <h3>Username</h3>
+                        <input type="text" id="email" onChange={handleChange}/>
+                    </label>
+                    <label>
+                        <h3>Password</h3>
+                        <input type="text" id="password" onChange={handleChange}/>
+                    </label>
+                    <input
+                        type="submit"
+                        className={classes.Button}
+                        value="LOGIN"
+                        onClick={onUserSubmit}/>
+                </form>
+            </div>
         </section>
     )
 }
 
-export default Login;
+const mapStateToProps = (state) => {
+    return {
+        authError: state.login.authError
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        signIn: (creds) => dispatch(A.logIn(creds))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
