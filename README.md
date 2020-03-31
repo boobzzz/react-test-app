@@ -7,18 +7,16 @@ Test task for checking the initial skills: react, redux, react-router
 ## Task description
 
 Implement an application that can display the following pages:
----
-/ - home
----
-/login - login and password entry page
-/news - news page (any information of the same type)
+- / - home
+- /login - login and password entry page
+- /news - news page (any information of the same type)
 Just show some
-/profile - a page with free text, unavailable without authorization
+- /profile - a page with free text, unavailable without authorization
 On the site, in the header or basement, implement the links:
-To the main (/)
-News (/ news)
+- To the main (/)
+- News (/news)
 - https://newsapi.org/ - use this open api to show any random news.
-Profile (/ profile)
+- Profile (/ profile)
 If the user clicks on the &quot;profile&quot; page and he is not &quot;authorized&quot; - throw on the / login page
 The login form (/ login) accepts fake data:
 username: admin
