@@ -2,12 +2,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # React Test App
 
-Checking the initial skills: react, redux, react-router
+Test task for checking the initial skills: react, redux, react-router
 
 ## Task description
 
-Implement an application that can display the following pages:
-/ - home
+- Implement an application that can display the following pages:
+- / - home
 /login - login and password entry page
 /news - news page (any information of the same type)
 Just show some
@@ -33,5 +33,7 @@ Make it so that you can comfortably watch an example in a browser.
 
 ## Built With
 
-* [React](https://reactjs.org/) - Main web framework used
-* [React Router](https://reacttraining.com/react-router/) - Project routing
+* [React](https://reactjs.org/)
+* [React Router](https://reacttraining.com/react-router/)
+* [Redux](https://redux.js.org/)
+* [Firebase](https://firebase.google.com/)
