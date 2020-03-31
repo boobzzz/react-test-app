@@ -5,20 +5,22 @@ import * as A from '../../store/actions';
 import classes from './Login.module.css';
 
 const Login = (props) => {
-    const { value, setValue } = useState({
+    const { authError, location } = props;
+
+    const [value, setValue] = useState({
         email: '',
         password: ''
     })
 
     const handleChange = (e) => {
         setValue({
-            [e.target.id]: e.target.value
+            ...value, [e.target.id]: e.target.value
         })
     }
 
     const onUserSubmit = (e) => {
         e.preventDefault()
-        props.signIn(value)
+        props.logIn(value)
     }
 
     return (
@@ -52,7 +54,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        signIn: (creds) => dispatch(A.logIn(creds))
+        logIn: (creds) => dispatch(A.logIn(creds))
     }
 }
 

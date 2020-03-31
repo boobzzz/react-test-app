@@ -28,14 +28,13 @@ export const profileReducer = (state = initialState, action) => {
 }
 
 export const authReducer = (state = initialState, action) => {
-    console.log(action);
     if (action.type === 'LOGIN_SUCCESS') {
         console.log('Login Success')
-        return state
+        return {...state, authError: '/profile'}
     }
     if (action.type === 'LOGIN_ERROR') {
         console.log('Login Failed')
-        return state
+        return {...state, authError: ''}
     }
     return state
 }

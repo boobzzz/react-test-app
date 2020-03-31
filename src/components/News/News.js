@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import * as A from '../../utils/api.js';
+import * as A from '../../utils/api';
 
 import Article from './Article/Article'
 import Loader from '../Loader/Loader';

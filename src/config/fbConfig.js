@@ -10,7 +10,7 @@ var firebaseConfig = {
     storageBucket: "react-redux-login-18458.appspot.com",
     messagingSenderId: "565474645913",
     appId: "1:565474645913:web:0526154d067b07befb6508"
-  };
-  firebase.initializeApp(firebaseConfig);
+}
+firebase.initializeApp(firebaseConfig)
 
-  export default firebase;
+export default firebase;
