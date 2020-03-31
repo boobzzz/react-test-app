@@ -31,7 +31,7 @@ Everything you need, throw through Redux. Take your own decision what parts shou
 Design (design) is not important just use some css framework like (https://bulma.io/ or https://getbootstrap.com/).
 Make it so that you can comfortably watch an example in a browser.
 
-## Built With
+## Technologies implemented
 
 * [React](https://reactjs.org/)
 * [React Router](https://reacttraining.com/react-router/)
