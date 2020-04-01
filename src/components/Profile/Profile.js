@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import * as A from '../../utils/api.js';
 
 import Loader from '../Loader/Loader';
+import classes from './Profile.module.css';
 
 const Profile = (props) => {
     const { profile } = props;
@@ -25,24 +26,31 @@ const Profile = (props) => {
         }
         fetchData()
     }, [])
-    
+
+    const onUserSubmit = () => {}
+
     return (
         props.loading
         ? <Loader />
         : <div>
-            <div>
+            <div className={classes.ProfileBox}>
                 <img src={profile.avatarUrl} alt={profile.name}/>
                 <h3>{profile.name}</h3>
-                <p>{profile.bio}</p>
+                <p><i>{profile.bio}</i></p>
             </div>
+            <input
+                type="submit"
+                className={classes.Button}
+                value="LOGOUT"
+                onClick={onUserSubmit}/>
         </div>
     )
 }
 
 const mapStateToProps = (state) => {
     return {
-        loading: state.p.isLoading,
-        profile: state.p.profile,
+        profile: state.profile.profile,
+        loading: state.profile.isLoading,
     }
 }
 

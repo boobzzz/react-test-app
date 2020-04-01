@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import * as A from '../../store/actions';
 import classes from './Login.module.css';
 
 const Login = (props) => {
-    const { authError, location } = props;
-
+    const { authError, logIn } = props;
     const [value, setValue] = useState({
         email: '',
         password: ''
+    })
+    const [path, setPath] = useState('')
+    const history = useHistory();
+    console.log(history)
+    useEffect(() => {
+        setPath()
     })
 
     const handleChange = (e) => {
@@ -20,12 +26,15 @@ const Login = (props) => {
 
     const onUserSubmit = (e) => {
         e.preventDefault()
-        props.logIn(value)
+        logIn(value, history)
+
+        // history.push(path)
     }
 
     return (
         <section>
             <div className={classes.FormBox}>
+                {authError ? <p>Invalid Username or Password!</p> : null}
                 <form>
                     <label>
                         <h3>Username</h3>
@@ -48,13 +57,14 @@ const Login = (props) => {
 
 const mapStateToProps = (state) => {
     return {
+        // path: state.login.path,
         authError: state.login.authError
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        logIn: (creds) => dispatch(A.logIn(creds))
+        logIn: (creds, hist) => dispatch(A.logIn(creds), {path: hist})
     }
 }
 

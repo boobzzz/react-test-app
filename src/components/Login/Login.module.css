@@ -6,6 +6,11 @@
     border: 1px solid #dadce0;
     border-radius: 5px;
 }
+    .FormBox p {
+        margin-top: 0;
+        text-align: center;
+        color: red;
+    }
     .FormBox h3 {
         margin: 0;
         margin-top: 20px;
