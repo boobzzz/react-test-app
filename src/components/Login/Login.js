@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import * as A from '../../store/actions';
@@ -11,12 +11,8 @@ const Login = (props) => {
         email: '',
         password: ''
     })
-    const [path, setPath] = useState('')
-    const history = useHistory();
-    console.log(history)
-    useEffect(() => {
-        setPath()
-    })
+
+    if (authError) return <Redirect to="/profile" />
 
     const handleChange = (e) => {
         setValue({
@@ -26,9 +22,7 @@ const Login = (props) => {
 
     const onUserSubmit = (e) => {
         e.preventDefault()
-        logIn(value, history)
-
-        // history.push(path)
+        logIn(value)
     }
 
     return (
@@ -57,14 +51,13 @@ const Login = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        // path: state.login.path,
         authError: state.login.authError
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        logIn: (creds, hist) => dispatch(A.logIn(creds), {path: hist})
+        logIn: (creds) => dispatch(A.logIn(creds))
     }
 }
 

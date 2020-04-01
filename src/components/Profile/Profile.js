@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as A from '../../utils/api.js';
 
@@ -6,7 +7,7 @@ import Loader from '../Loader/Loader';
 import classes from './Profile.module.css';
 
 const Profile = (props) => {
-    const { profile } = props;
+    const { authError, profile } = props;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -27,8 +28,6 @@ const Profile = (props) => {
         fetchData()
     }, [])
 
-    const onUserSubmit = () => {}
-
     return (
         props.loading
         ? <Loader />
@@ -38,11 +37,6 @@ const Profile = (props) => {
                 <h3>{profile.name}</h3>
                 <p><i>{profile.bio}</i></p>
             </div>
-            <input
-                type="submit"
-                className={classes.Button}
-                value="LOGOUT"
-                onClick={onUserSubmit}/>
         </div>
     )
 }
