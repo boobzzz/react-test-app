@@ -6,7 +6,7 @@ const Article = (props) => {
         <div className={classes.ArticleBox}>
             <div className={classes.ArticleHeader}>
                 <h3>{props.name}</h3>
-                <span>Author: {props.author}</span>
+                <span>Author: <i>{props.author}</i></span>
             </div>
             <div className={classes.ArticleDesc}>
                 <p>{props.desc}</p>

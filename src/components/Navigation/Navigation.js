@@ -10,6 +10,7 @@ const Navigation = (props) => {
                 <li><NavLink to="/" exact>home</NavLink></li>
                 <li><NavLink to="/news">news</NavLink></li>
                 <li><NavLink to="/login">log in</NavLink></li>
+                <li><NavLink to="/profile">profile</NavLink></li>
             </ul>
         </nav>
     )

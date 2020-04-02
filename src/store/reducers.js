@@ -1,7 +1,7 @@
 const initialState = {
     isLoading: false,
     articles: [],
-    authError: false,
+    authError: null,
     profile: {}
 }
 
@@ -29,12 +29,10 @@ export const profileReducer = (state = initialState, action) => {
 
 export const authReducer = (state = initialState, action) => {
     if (action.type === 'LOGIN_SUCCESS') {
-        console.log('Login Success')
-        return {...state, authError: true}
+        return {...state, authError: false}
     }
     if (action.type === 'LOGIN_ERROR') {
-        console.log('Login Failed')
-        return {...state, authError: false}
+        return {...state, authError: true}
     }
     return state
 }

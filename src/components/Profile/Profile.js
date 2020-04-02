@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
-import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import * as A from '../../utils/api.js';
 
 import Loader from '../Loader/Loader';
 import classes from './Profile.module.css';
 
 const Profile = (props) => {
-    const { authError, profile } = props;
+    const { authError, loading, profile } = props;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -28,8 +28,10 @@ const Profile = (props) => {
         fetchData()
     }, [])
 
+    if (authError === null) return <Redirect to="/login" />
+
     return (
-        props.loading
+        loading
         ? <Loader />
         : <div>
             <div className={classes.ProfileBox}>
@@ -43,8 +45,9 @@ const Profile = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        profile: state.profile.profile,
         loading: state.profile.isLoading,
+        authError: state.login.authError,
+        profile: state.profile.profile,
     }
 }
 

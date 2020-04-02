@@ -12,7 +12,7 @@ const Login = (props) => {
         password: ''
     })
 
-    if (authError) return <Redirect to="/profile" />
+    if (authError === false) return <Redirect to="/profile" />
 
     const handleChange = (e) => {
         setValue({
@@ -28,7 +28,7 @@ const Login = (props) => {
     return (
         <section>
             <div className={classes.FormBox}>
-                {authError ? <p>Invalid Username or Password!</p> : null}
+                {authError === true ? <p>Invalid Username or Password!</p> : null}
                 <form>
                     <label>
                         <h3>Username</h3>
