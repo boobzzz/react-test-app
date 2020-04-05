@@ -33,6 +33,7 @@ Make it so that you can comfortably watch an example in a browser.
 ## Technologies and dependencies used
 
 * [React](https://reactjs.org/)
+* [React Hooks API](https://reactjs.org/docs/hooks-reference.html)
 * [React Router](https://reacttraining.com/react-router/)
 * [Redux](https://redux.js.org/)
 * [Firebase](https://firebase.google.com/)
